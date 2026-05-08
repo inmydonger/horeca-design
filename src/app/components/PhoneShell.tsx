@@ -4,7 +4,7 @@ import { BottomNav } from "./BottomNav";
 
 export function PhoneShell({ children }: { children?: ReactNode }) {
   const { pathname } = useLocation();
-  const hideNav = pathname === "/splash" || pathname === "/login" || /^\/catalog\/[^/]+$/.test(pathname) || pathname === "/checkout" || pathname === "/orders/confirmation";
+  const hideNav = pathname === "/splash" || pathname === "/login" || pathname === "/cart" || /^\/catalog\/[^/]+$/.test(pathname) || pathname === "/checkout" || pathname === "/orders/confirmation";
   const showNav = !hideNav;
   return (
     <div className="min-h-dvh w-full flex items-stretch md:items-center justify-center bg-[#1C1917]">

@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div className="pb-24 flex flex-col bg-white">
-      <header className="bg-white sticky top-0 z-20 border-b border-[#e0ddda] pt-12 pb-4 px-6 flex flex-col gap-4">
+      <header className="bg-white sticky top-0 z-20 border-b border-[#e0ddda] pt-4 pb-4 px-6 flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <img src={image_logo_horeca} className="h-[32px] w-[76px] object-contain" alt="Horeca Logo" />
           <Link to="/cart" className="relative p-1">
