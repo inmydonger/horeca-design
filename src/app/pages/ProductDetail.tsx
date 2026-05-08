@@ -36,7 +36,7 @@ export default function ProductDetail() {
 
       {/* Product Image */}
       <div className="product-detail-image-wrapper">
-        <ProductImage category={product.category} className="product-detail-hero-img" size={80} />
+        <ProductImage category={product.category} productId={product.id} src={product.image} className="product-detail-hero-img" size={80} />
       </div>
 
       {/* Scrollable Content */}

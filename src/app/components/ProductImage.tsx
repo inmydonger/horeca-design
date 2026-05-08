@@ -16,7 +16,7 @@ const thumbnails = [
   imgProductThumbnail6,
 ];
 
-export function ProductImage({ category, className = "", size = 36, productId }: { category: string; className?: string; size?: number; productId?: string }) {
+export function ProductImage({ category, className = "", size = 36, productId, src: externalSrc }: { category: string; className?: string; size?: number; productId?: string; src?: string }) {
   // Simple hash function to pick a consistent image for a product
   let hash = 0;
   if (productId) {
@@ -26,11 +26,11 @@ export function ProductImage({ category, className = "", size = 36, productId }:
   }
   
   const index = Math.abs(hash) % thumbnails.length;
-  const src = thumbnails[index];
+  const src = externalSrc || thumbnails[index];
 
   return (
     <div className={`bg-muted flex items-center justify-center overflow-hidden ${className}`}>
-      <img src={src} className="w-full h-full object-cover" alt={`${category} product`} />
+      <img src={src} className="w-full h-full object-cover" alt={`${category} product`} referrerPolicy="no-referrer" />
     </div>
   );
 }

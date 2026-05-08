@@ -40,7 +40,7 @@ export default function Home() {
     if (q.trim()) l = l.filter((p) => p.name.toLowerCase().includes(q.toLowerCase()));
     return [...l];
   }, [cat, q]);
-  const freshProducts = products.filter(p => p.category === "Beef").slice(0, 4);
+
   const popularProducts = products.slice(0, 5);
 
   return (
@@ -72,24 +72,15 @@ export default function Home() {
 
       {!q.trim() && (
         <>
-          <section className="mt-6 px-6">
-            <div ref={carouselRef} className="flex gap-3 overflow-x-auto no-scrollbar snap-x pb-2">
+          <section className="mt-6">
+            <div ref={carouselRef} className="flex gap-3 overflow-x-auto no-scrollbar snap-x pb-2 px-6">
               <img src={banner1} className="h-[129px] w-[339px] rounded-xl shrink-0 object-cover snap-center" alt="Banner 1" />
               <img src={banner2} className="h-[129px] w-[339px] rounded-xl shrink-0 object-cover snap-center" alt="Banner 2" />
               <img src={banner3} className="h-[129px] w-[339px] rounded-xl shrink-0 object-cover snap-center" alt="Banner 3" />
             </div>
           </section>
 
-          <section className="mt-6">
-            <h2 className="px-6 font-['Inter',sans-serif] font-semibold text-[#13110f] text-[16px] mb-3">Fresh Products</h2>
-            <div className="flex gap-[14px] overflow-x-auto px-6 no-scrollbar pb-2">
-              {freshProducts.map((p) => (
-                <div key={`fresh-${p.id}`} className="w-[170px] shrink-0">
-                  <ProductCard product={p} />
-                </div>
-              ))}
-            </div>
-          </section>
+
 
           <section className="mt-6">
             <h2 className="px-6 font-['Inter',sans-serif] font-semibold text-[#13110f] text-[16px] mb-3">Popular Products</h2>
@@ -104,7 +95,7 @@ export default function Home() {
         </>
       )}
 
-      <div className="px-6 mt-6 mb-2 sticky top-[156px] z-10 bg-white py-2">
+      <div className="px-6 mb-2 sticky top-[124px] z-10 bg-white py-2">
         <CategoryChips value={cat} onChange={setCat} />
       </div>
 

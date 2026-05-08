@@ -3,7 +3,7 @@ export type Cat = (typeof CATEGORIES)[number];
 
 export function CategoryChips({ value, onChange }: { value: Cat; onChange: (c: Cat) => void }) {
   return (
-    <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4">
+    <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 no-scrollbar">
       {CATEGORIES.map((c) => (
         <button
           key={c}

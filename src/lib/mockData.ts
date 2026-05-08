@@ -3,12 +3,13 @@ export type Stock = "in" | "low" | "out";
 export type Product = {
   id: string;
   name: string;
-  category: "Beef" | "Chicken" | "Sea Food" | "Other";
+  category: "Beef" | "Chicken" | "Sea Food" | "Other" | string;
   price: number;
   unit: string;
   minOrder: number;
   stock: Stock;
   description: string;
+  image?: string;
 };
 
 export type Address = {
@@ -71,20 +72,12 @@ export const addresses: Address[] = [
 ];
 
 export const products: Product[] = [
-  { id: "p1", name: "Wagyu Sirloin MS4+", category: "Beef", price: 1250000, unit: "kg", minOrder: 2, stock: "in", description: "Marbling Score 4+ wagyu sirloin, frozen, sourced from Australia. Store at -18°C." },
-  { id: "p2", name: "Beef Tenderloin A4", category: "Beef", price: 980000, unit: "kg", minOrder: 2, stock: "in", description: "Premium A4 grade tenderloin, vacuum sealed. Best served seared rare to medium-rare." },
-  { id: "p3", name: "Beef Rib Eye", category: "Beef", price: 720000, unit: "kg", minOrder: 3, stock: "low", description: "USDA Choice rib eye, 2.5cm cut, generous marbling. Frozen, ships in insulated boxes." },
-  { id: "p4", name: "Beef Brisket", category: "Beef", price: 285000, unit: "kg", minOrder: 5, stock: "in", description: "Whole packer brisket, ideal for slow smoking and braising. Average 5-7kg per piece." },
-  { id: "p5", name: "Ground Beef Premium", category: "Beef", price: 165000, unit: "kg", minOrder: 5, stock: "in", description: "80/20 lean to fat ratio, freshly minted. Excellent for burger patties and bolognese." },
-  { id: "p6", name: "Chicken Breast IQF", category: "Chicken", price: 78000, unit: "kg", minOrder: 5, stock: "in", description: "Individually quick frozen boneless skinless breast. Convenient portion-by-portion thawing." },
-  { id: "p7", name: "Whole Chicken Fresh", category: "Chicken", price: 62000, unit: "ekor", minOrder: 5, stock: "in", description: "Farm-fresh whole chicken, ~1.2kg, halal certified. Delivered chilled within 24 hours." },
-  { id: "p8", name: "Chicken Thigh Boneless", category: "Chicken", price: 72000, unit: "kg", minOrder: 5, stock: "low", description: "Skinless boneless thigh fillet, juicier alternative to breast. Frozen, IQF packed." },
-  { id: "p9", name: "Chicken Wings", category: "Chicken", price: 68000, unit: "kg", minOrder: 5, stock: "in", description: "Whole wings split into drumette and flat. Perfect for fryers and Asian-style preparations." },
-  { id: "p10", name: "Egg Omega-3", category: "Sea Food", price: 38000, unit: "tray (30 pcs)", minOrder: 2, stock: "in", description: "Free-range Omega-3 enriched eggs. Brown shell, large grade. Refrigerate after delivery." },
-  { id: "p11", name: "Egg Kampung", category: "Sea Food", price: 56000, unit: "tray (30 pcs)", minOrder: 2, stock: "in", description: "Traditional village-raised chicken eggs, deeper yolk color and richer flavor." },
-  { id: "p12", name: "Egg Pasteurized", category: "Sea Food", price: 42000, unit: "tray (30 pcs)", minOrder: 2, stock: "out", description: "In-shell pasteurized eggs, food-safety friendly for raw applications like mayonnaise." },
-  { id: "p13", name: "Lamb Rack NZ", category: "Other", price: 690000, unit: "kg", minOrder: 2, stock: "low", description: "New Zealand lamb rack, frenched and ready to roast. Grass-fed, mild lamb flavor." },
-  { id: "p14", name: "Duck Breast", category: "Other", price: 240000, unit: "kg", minOrder: 3, stock: "in", description: "Magret de canard style duck breast, score the fat and pan-sear skin-side down." },
+  { id: "p1", name: "SHORT RIBS ECT A", category: "Fresh Meat", price: 109940, unit: "kg", minOrder: 2, stock: "in", description: "Premium bone-in beef short ribs, grade A, sourced from the plate and chuck section. Well-marbled with a rich fat cap that renders beautifully during slow cooking, resulting in deeply flavourful, fall-off-the-bone meat. Ideal for braising, Korean galbi, or low-and-slow BBQ. Supplied fresh and chilled.", image: "https://drive.google.com/thumbnail?id=1nCl7JHNATa3hdsmTnozjs9dXqyPgXfc_&sz=w800" },
+  { id: "p2", name: "HEAD MEAT LOCKERVALLEY @27,2", category: "Fresh Meat", price: 110228, unit: "kg", minOrder: 2, stock: "in", description: "Tender, well-trimmed beef head meat from Locker Valley, known for its consistent quality and traceability. A versatile cut with a fine grain texture and mild beefy flavour, commonly used in deli preparations, slow-cooked stews, and traditional soups.", image: "https://drive.google.com/thumbnail?id=1fkH0cb74-cOoWzHX3CbnHI2Og47NnFYj&sz=w800" },
+  { id: "p3", name: "BRISKET BONE PPCS ME 15", category: "Fresh Meat", price: 43049, unit: "kg", minOrder: 5, stock: "low", description: "Bone-in beef brisket, piece-packed (PPCS) to Middle East specification, grade 15. Sourced from the lower chest with natural fat cover intact for moisture retention during cooking. The collagen-rich connective tissue breaks down over extended cook times, producing an exceptionally tender result. Suitable for smoking, pressure cooking, and traditional slow-braise recipes.", image: "https://drive.google.com/thumbnail?id=19MQb87MHz425C0dpe6KRzzb5OGspAqXy&sz=w800" },
+  { id: "p4", name: "TENDERLOIN ALLANA(31) @20", category: "Fresh Meat", price: 133563, unit: "kg", minOrder: 1, stock: "in", description: "Premium whole beef tenderloin from Allana, one of India's leading halal-certified meat exporters. Size 31 denotes a consistently portioned, full-muscle cut with minimal side muscle, yielding exceptional tenderness and a buttery texture.", image: "https://drive.google.com/thumbnail?id=1f-q4a3gh11rP5sSecAd3Htnf43PmPB4R&sz=w800" },
+  { id: "p5", name: "DORI FILLET BL ISI 3 @10", category: "Fish", price: 63802, unit: "kg", minOrder: 1, stock: "in", description: "Skinless, boneless (BL) John Dory (Dori) fillet, individually sized (ISI) at grade 3. A delicate, white-fleshed fish prized for its mild flavour, firm texture, and clean appearance on the plate. Free of bones and skin for direct use in kitchen prep. Ideal for pan-frying, poaching, steaming, and fine-dining fish dishes.", image: "https://drive.google.com/thumbnail?id=1GFiMySDjXrIXAU3jxHUSIV-xmAofcKOl&sz=w800" },
+  { id: "p6", name: "BRISKET BONE LOCKYEAR VALLEY", category: "Fresh Meat", price: 42000, unit: "kg", minOrder: 1, stock: "in", description: "Bone-in beef brisket from Lockyear Valley, a trusted supplier known for pasture-raised, grain-finished cattle. Natural fat marbling throughout the flat and point ensures rich flavour and juiciness after long cook times. An ideal cut for smoked brisket, pot roast, or traditional slow-cooked dishes. Supplied fresh and chilled, ready for butchery or direct use.", image: "https://drive.google.com/thumbnail?id=1lLWAcoYS8YmT-9w3dFhnAS_yINqiJSRu&sz=w800" },
 ];
 
 export const initialOrders: Order[] = [
@@ -95,12 +88,11 @@ export const initialOrders: Order[] = [
     status: "Request",
     addressId: "addr-1",
     items: [
-      { productId: "p1", name: "Wagyu Sirloin MS4+", qty: 3, unit: "kg", price: 1250000 },
-      { productId: "p10", name: "Egg Omega-3", qty: 4, unit: "tray (30 pcs)", price: 38000 },
+      { productId: "p1", name: "SHORT RIBS ECT A", qty: 3, unit: "kg", price: 109940 },
     ],
-    subtotal: 3902000,
+    subtotal: 329820,
     deliveryFee: 150000,
-    total: 4052000,
+    total: 479820,
   },
   {
     id: "o2",
@@ -109,12 +101,11 @@ export const initialOrders: Order[] = [
     status: "Processing",
     addressId: "addr-1",
     items: [
-      { productId: "p1", name: "Wagyu Sirloin MS4+", qty: 3, unit: "kg", price: 1250000 },
-      { productId: "p10", name: "Egg Omega-3", qty: 4, unit: "tray (30 pcs)", price: 38000 },
+      { productId: "p1", name: "SHORT RIBS ECT A", qty: 3, unit: "kg", price: 109940 },
     ],
-    subtotal: 3902000,
+    subtotal: 329820,
     deliveryFee: 150000,
-    total: 4052000,
+    total: 479820,
   },
   {
     id: "o3",
@@ -123,13 +114,12 @@ export const initialOrders: Order[] = [
     status: "Delivered",
     addressId: "addr-2",
     items: [
-      { productId: "p6", name: "Chicken Breast IQF", qty: 10, unit: "kg", price: 78000 },
-      { productId: "p9", name: "Chicken Wings", qty: 8, unit: "kg", price: 68000 },
-      { productId: "p5", name: "Ground Beef Premium", qty: 6, unit: "kg", price: 165000 },
+      { productId: "p6", name: "BRISKET BONE LOCKYEAR VALLEY", qty: 10, unit: "kg", price: 42000 },
+      { productId: "p5", name: "DORI FILLET BL ISI 3 @10", qty: 6, unit: "kg", price: 63802 },
     ],
-    subtotal: 2314000,
+    subtotal: 802812,
     deliveryFee: 150000,
-    total: 2464000,
+    total: 952812,
   },
   {
     id: "o4",
@@ -138,12 +128,11 @@ export const initialOrders: Order[] = [
     status: "Unpaid",
     addressId: "addr-1",
     items: [
-      { productId: "p2", name: "Beef Tenderloin A4", qty: 2, unit: "kg", price: 980000 },
-      { productId: "p13", name: "Lamb Rack NZ", qty: 2, unit: "kg", price: 690000 },
+      { productId: "p2", name: "HEAD MEAT LOCKERVALLEY @27,2", qty: 2, unit: "kg", price: 110228 },
     ],
-    subtotal: 3340000,
+    subtotal: 220456,
     deliveryFee: 150000,
-    total: 3490000,
+    total: 370456,
   },
   {
     id: "o5",
@@ -152,12 +141,11 @@ export const initialOrders: Order[] = [
     status: "Paid",
     addressId: "addr-1",
     items: [
-      { productId: "p2", name: "Beef Tenderloin A4", qty: 2, unit: "kg", price: 980000 },
-      { productId: "p13", name: "Lamb Rack NZ", qty: 2, unit: "kg", price: 690000 },
+      { productId: "p2", name: "HEAD MEAT LOCKERVALLEY @27,2", qty: 2, unit: "kg", price: 110228 },
     ],
-    subtotal: 3340000,
+    subtotal: 220456,
     deliveryFee: 150000,
-    total: 3490000,
+    total: 370456,
   },
 ];
 

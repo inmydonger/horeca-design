@@ -35,7 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="bg-white relative rounded-[14px] size-full overflow-hidden flex flex-col border border-[#e0ddda]">
       <Link to={`/catalog/${product.id}`} className="block relative w-full aspect-square">
-        <ProductImage category={product.category} productId={product.id} className="absolute inset-0 size-full object-cover" />
+        <ProductImage category={product.category} productId={product.id} src={product.image} className="absolute inset-0 size-full object-cover" />
       </Link>
       
       <div className="p-2 flex flex-col gap-1 flex-1 relative">
