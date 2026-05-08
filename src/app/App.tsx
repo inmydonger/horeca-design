@@ -2,6 +2,7 @@ import { MemoryRouter, Routes, Route, Navigate } from "react-router";
 import { StoreProvider } from "./store";
 import { PhoneShell } from "./components/PhoneShell";
 import { Toaster } from "./components/ui/sonner";
+import Splash from "./pages/Splash";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
@@ -19,9 +20,10 @@ import ChangePassword from "./pages/ChangePassword";
 export default function App() {
   return (
     <StoreProvider>
-      <MemoryRouter initialEntries={["/login"]}>
+      <MemoryRouter initialEntries={["/splash"]}>
         <Routes>
           <Route element={<PhoneShell />}>
+            <Route path="/splash" element={<Splash />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Catalog />} />
